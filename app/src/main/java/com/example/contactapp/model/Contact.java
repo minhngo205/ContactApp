@@ -57,6 +57,9 @@ public class Contact implements Parcelable {
         this.email = email;
     }
 
+    public Contact() {
+    }
+
     @Override
     public int describeContents() {
         return 0;

@@ -1,9 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.DetailActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="Contact" type="com.example.contactapp.model.Contact"/>
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:src="@drawable/contacts_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.031" />
+
+        <TextView
+            android:id="@+id/textHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Tap to Add an Image"
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.345" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.887"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.918"
+            app:srcCompat="@drawable/ic_baseline_edit_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#4CAF50"
+            android:text="Lưu"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.294"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
+
+        <Button
+            android:id="@+id/btn_canceledit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F44336"
+            android:text="Huỷ"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.702"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên: "
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.084"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.471" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Tên"
+            android:inputType="textPersonName"
+            android:text="@{Contact.getName()}"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.855"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.469" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số điện thoại:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.593" />
+
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:hint="Số điện thoại"
+            android:inputType="number"
+            android:text="@{Contact.getMobile()}"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.911"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.594" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.088"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.703" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:text="@{Contact.getEmail()}"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.904"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.711" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/profile_image"-->
+<!--                android:layout_width="220dp"-->
+<!--                android:layout_height="220dp"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:src="@drawable/contacts_icon" />-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:textSize="15sp"-->
+<!--                android:id="@+id/textHint"-->
+<!--                android:text="Tap to Add an Image"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_below="@+id/profile_image"-->
+
+<!--                />-->
+
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/btn_edit"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginEnd="35dp"-->
+<!--            android:layout_marginBottom="35dp"-->
+<!--            android:clickable="true"-->
+<!--            app:srcCompat="@drawable/ic_baseline_edit_24"-->
+<!--            tools:ignore="SpeakableTextPresentCheck" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_save"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginEnd="242dp"-->
+<!--            android:layout_marginBottom="38dp"-->
+<!--            android:background="#4CAF50"-->
+<!--            android:text="Lưu"-->
+<!--            android:textSize="16sp"-->
+<!--            android:visibility="invisible" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_canceledit"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginEnd="93dp"-->
+<!--            android:layout_marginBottom="38dp"-->
+<!--            android:background="#F44336"-->
+<!--            android:text="Huỷ"-->
+<!--            android:textSize="16sp"-->
+<!--            android:visibility="invisible" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/textHint"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginTop="79dp"-->
+<!--            android:layout_marginEnd="28dp"-->
+<!--            android:layout_toStartOf="@+id/et_name"-->
+<!--            android:text="Tên: "-->
+<!--            android:textSize="20sp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/textHint"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="59dp"-->
+<!--            android:layout_marginEnd="27dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Tên"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:text="@{Contact.getName()}"-->
+<!--            android:textSize="24sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_number"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/tv_name"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_marginStart="13dp"-->
+<!--            android:layout_marginTop="53dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_toStartOf="@+id/et_number"-->
+<!--            android:text="Số điện thoại:"-->
+<!--            android:textSize="20sp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_number"-->
+<!--            android:layout_width="202dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/et_name"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginEnd="26dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Số điện thoại"-->
+<!--            android:inputType="number"-->
+<!--            android:text="@{Contact.getMobile()}"-->
+<!--            android:textSize="24sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_email"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/tv_number"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="57dp"-->
+<!--            android:layout_marginEnd="37dp"-->
+<!--            android:layout_toStartOf="@+id/et_email"-->
+<!--            android:text="Email: "-->
+<!--            android:textSize="20sp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_email"-->
+<!--            android:layout_width="255dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/et_number"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="36dp"-->
+<!--            android:layout_marginEnd="26dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Email"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:text="@{Contact.getEmail()}"-->
+<!--            android:textSize="24sp" />-->
+
+<!--    </RelativeLayout>-->
+</layout>

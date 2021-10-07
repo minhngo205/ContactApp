@@ -19,6 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="#3F51B5"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <EditText
@@ -26,7 +27,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawableLeft="@drawable/ic_baseline_search_24"
-                android:hint="Tìm kiếm" />
+                android:drawablePadding="10dp"
+                android:hint="Tìm kiếm"
+                android:inputType="text" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

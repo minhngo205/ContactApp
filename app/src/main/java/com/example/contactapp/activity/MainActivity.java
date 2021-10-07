@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -78,6 +79,15 @@ public class MainActivity extends AppCompatActivity {
             dataset = contacts;
             adapter = new ContactAdapter(dataset);
             activityMainBinding.contactList.setAdapter(adapter);
+            adapter.setOnItemClickListener(new ContactAdapter.ClickListener() {
+                @Override
+                public void onItemClick(int position, View v) {
+                    Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                    intent.putExtra("data",dataset.get(position));
+                    startActivity(intent);
+//                    Toast.makeText(MainActivity.this, "OK: "+dataset.get(position).getId(), Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 
