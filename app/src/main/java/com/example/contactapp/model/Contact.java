@@ -1,11 +1,14 @@
 package com.example.contactapp.model;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.sql.Blob;
 
 @Entity
 public class Contact implements Parcelable {
@@ -17,6 +20,8 @@ public class Contact implements Parcelable {
     private String mobile;
     @ColumnInfo
     private String email;
+    @ColumnInfo
+    private byte[] picture;
 
     public int getId() {
         return id;
@@ -91,4 +96,12 @@ public class Contact implements Parcelable {
             return new Contact[size];
         }
     };
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.room.Room;
 
 public class DatabaseClient {
-    private Context mCtx;
+    private final Context mCtx;
     private static DatabaseClient instance;
     private final ContactDatabase contactDatabase;
 

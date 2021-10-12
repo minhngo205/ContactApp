@@ -18,6 +18,7 @@ import com.example.contactapp.databinding.ActivityMainBinding;
 import com.example.contactapp.model.Contact;
 import com.example.contactapp.viewmodel.MainActivityViewModel;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -82,8 +83,13 @@ public class MainActivity extends AppCompatActivity {
             adapter.setOnItemClickListener(new ContactAdapter.ClickListener() {
                 @Override
                 public void onItemClick(int position, View v) {
+//                    Log.d(TAG, "onCreate: "+dataset.get(position).getName());
+//                    Log.d(TAG, "onCreate: "+dataset.get(position).getEmail());
+//                    Log.d(TAG, "onCreate: "+dataset.get(position).getMobile());
+//                    Log.d(TAG, "onCreate: "+ Arrays.toString(dataset.get(position).getPicture()));
                     Intent intent = new Intent(MainActivity.this,DetailActivity.class);
                     intent.putExtra("data",dataset.get(position));
+                    intent.putExtra("image",dataset.get(position).getPicture());
                     startActivity(intent);
 //                    Toast.makeText(MainActivity.this, "OK: "+dataset.get(position).getId(), Toast.LENGTH_SHORT).show();
                 }

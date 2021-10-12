@@ -1,6 +1,10 @@
 package com.example.contactapp.adapter;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +19,11 @@ import com.example.contactapp.activity.MainActivity;
 import com.example.contactapp.model.Contact;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
+    private static final String TAG = "ContactAdapter";
 
     private final List<Contact> contactList;
 
@@ -39,6 +45,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ContactAdapter.ViewHolder holder, int position) {
         holder.content.setText(contactList.get(position).getName());
+        byte[] imageBytes = contactList.get(position).getPicture();
+        if(imageBytes!=null){
+            Bitmap bmp = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            holder.imageView.setImageBitmap(bmp);
+//            holder.imageView.setImageURI(Uri.parse(contactList.get(position).getPicture()));
+        }
     }
 
     @Override
